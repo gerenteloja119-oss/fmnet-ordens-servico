@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: fmnet-ordens-servico
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SUPABASE_URL
+        value: https://fnspmdnpxtormuruhcnj.supabase.co
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
